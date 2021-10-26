@@ -1,0 +1,52 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:logs:eu-west-2:600158604959:log-group:/aws/codebuild/farinaz-docker-codebuild",
+        "arn:aws:logs:eu-west-2:600158604959:log-group:/aws/codebuild/farinaz-docker-codebuild:*"
+      ],
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::codepipeline-eu-west-2-*"
+      ],
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:GetBucketAcl",
+        "s3:GetBucketLocation"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:codecommit:eu-west-2:600158604959:docker-sample-codebuild"
+      ],
+      "Action": [
+        "codecommit:GitPull"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "codebuild:CreateReportGroup",
+        "codebuild:CreateReport",
+        "codebuild:UpdateReport",
+        "codebuild:BatchPutTestCases",
+        "codebuild:BatchPutCodeCoverages"
+      ],
+      "Resource": [
+        "arn:aws:codebuild:eu-west-2:600158604959:report-group/farinaz-docker-codebuild-*"
+      ]
+    }
+  ]
+}
